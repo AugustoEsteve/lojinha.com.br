@@ -1,0 +1,229 @@
+[
+    {
+        "id": 1,
+        "idPessoa": 1,
+        "itens": [
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            }
+        ],
+        "total": 6,
+        "data": "2026-09-23 20:28:28"
+    },
+    {
+        "id": 2,
+        "idPessoa": 3,
+        "itens": [
+            {
+                "id": 4,
+                "nome": "Mana",
+                "preco": 5
+            }
+        ],
+        "total": 5,
+        "data": "2026-09-23 20:35:49"
+    },
+    {
+        "id": 3,
+        "idPessoa": 4,
+        "itens": [
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            },
+            {
+                "id": 1,
+                "nome": "Coca-COla",
+                "preco": 6
+            }
+        ],
+        "total": 192,
+        "data": "2026-09-23 20:38:42"
+    },
+    {
+        "id": 4,
+        "idPessoa": 4,
+        "itens": [
+            {
+                "id": 3,
+                "nome": "Arroz Mathes",
+                "preco": 15
+            },
+            {
+                "id": 3,
+                "nome": "Arroz Mathes",
+                "preco": 15
+            },
+            {
+                "id": 3,
+                "nome": "Arroz Mathes",
+                "preco": 15
+            },
+            {
+                "id": 3,
+                "nome": "Arroz Mathes",
+                "preco": 15
+            },
+            {
+                "id": 3,
+                "nome": "Arroz Mathes",
+                "preco": 15
+            }
+        ],
+        "total": 75,
+        "data": "2026-09-23 20:39:22"
+    }
+]

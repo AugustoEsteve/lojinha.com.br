@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nome": "Coca-COla",
+        "preco": 6
+    },
+    {
+        "id": 3,
+        "nome": "Arroz Mathes",
+        "preco": 15
+    },
+    {
+        "id": 4,
+        "nome": "Feijão",
+        "preco": 30
+    },
+    {
+        "id": 5,
+        "nome": "Sal",
+        "preco": 2
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "idPessoa": 1,
+        "nome": "Tom",
+        "cpf": "21515",
+        "cargo": "Vice presidente",
+        "salario": 500000
+    }
+]
