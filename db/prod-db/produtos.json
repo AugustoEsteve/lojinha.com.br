@@ -3,5 +3,10 @@
         "id": 2,
         "nome": "Massagem",
         "preco": 0
+    },
+    {
+        "id": 3,
+        "nome": "Bauru do Cafila",
+        "preco": 67
     }
 ]
