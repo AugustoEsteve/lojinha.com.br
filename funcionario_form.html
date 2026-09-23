@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<!--Linguagem da Página-->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Funcionário</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: white;
+        }
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(29, 29, 29);
+            background-image:
+                radial-gradient(circle 1.2px, rgba(173, 216, 230, 0.25) 100%, transparent 100%);
+            background-size: 1rem 1rem;
+        }
+
+        .background::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                radial-gradient(circle at center, transparent 60%, rgb(29, 29, 29) 100%);
+            pointer-events: none;
+        }
+
+        header {
+            width: 100%;
+            z-index: 1;
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            backdrop-filter: blur(2px);
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(131, 152, 185, 0.254);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            background: rgb(131, 153, 185);
+            padding: 0.5rem 1rem;
+            border-radius: 0.7rem;
+            transition: 0.6s ease all;
+        }
+
+        header nav a:hover {
+            transform: scale(1.05);
+        }
+
+        header nav .active {
+            background: rgb(111, 111, 255);
+            transform: scale(1.05);
+        }
+
+        .inicio {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .inicio .container {
+            background-color: rgba(0, 255, 170, 0.318);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+        }
+
+        .inicio .container form {
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- div > background - Apenas estilizar o fundo melhor -->
+    <div class="background"></div>
+
+    <!-- header - Parte superior do website -->
+    <header>
+        <!-- h1 - Título da header -->
+        <h1>Lojinha.com.br</h1>
+
+        <!-- nav - Navbar, navegar entre páginas -->
+        <nav>
+            <a href="index.php">Página Inicial</a>
+            <a href="db/prod-db/listar_produto.php">Produtos</a>
+        </nav>
+    </header>
+
+    <main class="inicio">
+        <section class="container">
+            <h1>Cadastro de Funcionários</h1>
+            <!--Formulário-Form-->
+            <form action="db/funcionarios-db/salvar_funcionario.php" method="POST">
+                <!--Label-Campos a Preencher-->
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br><br>
+
+                <label for="cpf">CPF:</label><br>
+                <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required><br><br>
+
+                <label for="cargo">Cargo:</label><br>
+                <input type="text" id="cargo" name="cargo" required><br><br>
+
+                <label for="salario">Salário (R$):</label><br>
+                <!-- O valor de step DEVE ser 0.01 com ponto, não vírgula -->
+                <input type="number" id="salario" name="salario" step="0.01" min="0" placeholder="0.00"
+                    required><br><br>
+                <!--Botão de Salvar-->
+                <button type="submit">Salvar Funcionário</button>
+            </form>
+        </section>
+    </main>
+
+    <br>
+    <!--Ir para a Lista de Funcionários-->
+    <a href="db/funcionarios-db/listar_funcionario.php">Listar Funcionários</a>
+</body>
+
+</html>

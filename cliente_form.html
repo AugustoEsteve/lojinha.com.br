@@ -1,4 +1,3 @@
-<!--Index.php-->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- title - Título do website -->
-    <title>Sistema de Vendas - Menu Principal</title>
+    <title>Cliente_Form</title>
     <!-- style - CSS para estilizar o website -->
     <style>
         * {
@@ -104,66 +103,38 @@
             border-radius: 1rem;
         }
 
-        .info {
+        .inicio .container h1 {
             margin-bottom: 1rem;
-            color: rgb(206, 206, 206);
         }
 
-        .inicio .container ul {
-            width: 100%;
-            max-width: 50rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            flex-wrap: wrap;
-            flex-direction: row;
-            list-style: none;
-            gap: 0.5rem;
-        }
-
-        .inicio .container ul div {
+        .inicio .container form {
             width: 100%;
             flex: 1 1;
             display: flex;
             justify-content: center;
-            align-items: center;
-            text-align: center;
+            align-items: start;
             flex-direction: column;
-            background: rgb(35, 35, 35);
-            border-radius: 1rem;
-            padding: 1rem;
         }
 
-        .inicio .container ul div span {
-            font-size: 2.5rem;
-        }
-
-        .inicio .container ul div strong {
-            margin-bottom: 0.5rem;
-        }
-
-        .inicio .container ul li {
+        .inicio .container form input {
             width: 100%;
-            display: flex;
-            margin-bottom: 0.5rem;
+            padding: 0.35rem;
+            border-radius: 0.4rem;
+            border: none;
+            outline: none;
+            transition: 0.2s ease all;
         }
 
-        .inicio .container ul li a {
+        .inicio .container form input:focus {
+            outline: 2px solid rgb(111, 111, 255);
+        }
+
+        .inicio .container form button {
             width: 100%;
-            color: white;
-            text-decoration: none;
-            background: rgb(111, 111, 255);
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            transition: 0.6s ease all;
-        }
-
-        .inicio .container ul li a:hover {
-            padding: 0.8rem 1.3rem;
+            padding: 0.4rem;
         }
     </style>
 </head>
-
-<!-- body - Corpo do site -->
 
 <body>
     <!-- div > background - Apenas estilizar o fundo melhor -->
@@ -176,55 +147,43 @@
 
         <!-- nav - Navbar, navegar entre páginas -->
         <nav>
-            <a href="index.php" class="active">Página Inicial</a>
+            <a href="index.php">Página Inicial</a>
             <a href="db/prod-db/listar_produto.php">Produtos</a>
         </nav>
     </header>
 
-    <!-- main - Parte principal do site -->
     <main>
-        <!-- section - Tela inicial -->
         <section class="inicio">
-            <!-- div - Agrupar tudo e estilizar no CSS -->
             <div class="container">
-                <!-- Título da página -->
-                <h1 class="title">Sistema de Vendas</h1>
-                <!-- p - Breve informação -->
-                <p class="info">Escolha uma das opções abaixo:</p>
+                <!-- h1 - Título da página -->
+                <h1>Cadastro de Cliente</h1>
+                <!-- form - Formulário com método POST para salvar_cliente.php -->
+                <form action="db/client-db/salvar_cliente.php" method="post">
+                    <!-- label - Especificar o que é cada coisa para escrever formulário -->
+                    <label>Nome:</label>
+                    <!-- input - Campo de digitação -->
+                    <input type="text" name="nome" placeholder="João Gabriel Braga" required>
+                    
+                    <br>
 
-                <ul>
-                    <!-- Gerenciamento de produtos -->
-                    <div>
-                        <span>📦</span>
-                        <strong>Gerenciamento de produtos</strong>
-                        <li><a href="produto_form.php">Cadastrar produto</a></li>
-                        <li><a href="db/prod-db/listar_produto.php">Listar produtos</a></li>
-                    </div>
+                    <label>CPF:</label>
+                    <input type="text" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
+                    
+                    <br>
 
-                    <!-- Gerenciamento de vendas -->
-                    <div>
-                        <span>💸</span>
-                        <strong>Gerenciamento de vendas</strong>
-                        <li><a href="venda_form.php">Nova venda</a></li>
-                        <li><a href="db/venda-db/listar_venda.php">Ver vendas</a></li>
-                    </div>
+                    <label>Crédito:</label>
+                    <input type="number" step="0.01" name="credito" placeholder="100">
+                    
+                    <br>
 
-                    <!-- Gerenciamento de clientes -->
-                    <div>
-                        <span>👤</span>
-                        <strong>Gerenciamento de clientes</strong>
-                        <li><a href="cliente_form.html">Cadastrar cliente</a></li>
-                        <li><a href="db/client-db/listar_cliente.php">Ver clientes</a></li>
-                    </div>
+                    <label>Saldo:</label>
+                    <input type="number" step="0.01" name="saldo" placeholder="100">
+                    
+                    <br>
 
-                    <!-- Gerenciamento de funcionários -->
-                    <div>
-                        <span>💻</span>
-                        <strong>Gerenciamento de funcionários</strong>
-                        <li><a href="funcionario_form.html">Cadastrar funcionário</a></li>
-                        <li><a href="db/funcionarios-db/listar_funcionario.php">Listar funcionários</a></li>
-                    </div>
-                </ul>
+                    <!-- button > submit - Fazer o POST do formulário e enviar informações digitadas -->
+                    <button type="submit">Cadastrar Cliente</button>
+                </form>
             </div>
         </section>
     </main>

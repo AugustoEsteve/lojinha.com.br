@@ -1,7 +1,7 @@
 <?php
 
 // Define o nome do arquivo JSON que contém os dados dos clientes
-$arquivo = "clientes.json";
+require_once "config.php";
 
 // Verifica se o arquivo de clientes existe
 if (file_exists($arquivo)) {
@@ -30,3 +30,5 @@ if (file_exists($arquivo)) {
     // Exibe uma mensagem caso o arquivo de clientes não seja encontrado
     echo "Nenhum cliente cadastrado.";
 }
+
+echo "<br><a href='../../index.php'>Voltar ao Menu</a>";

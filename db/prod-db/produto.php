@@ -1,4 +1,3 @@
-```php
 <?php
 
 // Classe responsável por representar um produto

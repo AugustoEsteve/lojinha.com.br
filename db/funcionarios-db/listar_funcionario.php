@@ -1,7 +1,7 @@
 <?php
-require_once "Funcionario.php";
+require_once "funcionario.php";
 
-$funcionarioFile = "funcionarios.json";
+require_once "config.php";
 if (!file_exists($funcionariosFile)) file_put_contents($funcionariosFile, "[]");
 
 $funcionariosJSON =json_decode(file_get_contents($funcionariosFile), true);
@@ -14,7 +14,7 @@ $funcionariosJSON =json_decode(file_get_contents($funcionariosFile), true);
   <title>Lista de funcionários</title>
   </html>
   <body>
-  <h1>Funcionários Cadastrados</h1>
+  <h1>Funcionários Cadastrado   s</h1>
 
   <table border="1" cellpadding="5">
     <tr>
@@ -27,14 +27,14 @@ $funcionariosJSON =json_decode(file_get_contents($funcionariosFile), true);
     </tr>
     <?php foreach ($funcionariosJSON as $f): ?>
         <tr>
-            <td><?=$f['idFuncionario'] ?></td>
+            <td><?=$f['idPessoa'] ?></td>
             <td><?=$f['nome'] ?></td>
             <td><?=$f['cpf']?></td>
             <td><?=$f['cargo']?></td>
             <td><?=number_format($f['salario'],2,',',',') ?></td>
-            <td?>
-                <form action="excluir_funcionario.php" method"post" style="display:inline;" onsubmit="return confirm('Deseja realmente excluir este funcionário?');">
-                    <input type="hidden" name="idFuncionario" value"<?=$f['idFuncionario'] ?>">
+            <td>
+                <form action="excluir_funcionario.php" method="post" style="display:inline;" onsubmit="return confirm('Deseja realmente excluir este funcionário?');">
+                    <input type="hidden" name="idPessoa" value="<?=$f['idPessoa'] ?>">
                     <button type="submit"> x Excluir</button>
                 </form>
            </td>
@@ -43,7 +43,7 @@ $funcionariosJSON =json_decode(file_get_contents($funcionariosFile), true);
     </table>
 
     <br>
-    <a href="funcionario_form.php"> + Cadastrar Novo Funcionário</a>
+    <a href="../../funcionario_form.html"> + Cadastrar Novo Funcionário</a>
     </body>
     </html>
             

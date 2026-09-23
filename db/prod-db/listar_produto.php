@@ -1,20 +1,9 @@
 <?php
 
 // Define o nome do arquivo JSON onde os produtos estão armazenados
-$produtosFile = "produtos.json";
+require_once "config.php";
 
-// Verifica se o arquivo produtos.json existe
-if (file_exists($produtosFile)) {
-
-    // Se o arquivo existir, coloca um array vazio dentro dele
-    // OBS: normalmente essa parte seria usada quando o arquivo NÃO existe.
-    file_put_contents($produtosFile, "[]");
-}
-
-// Lê o conteúdo do arquivo produtos.json
-// json_decode transforma o JSON em um array do PHP
-// O true faz com que o resultado seja um array associativo
-$produtos = json_decode(file_get_contents($produtosFile), true);
+$produtos = carregarJson($produtosFile);
 
 ?>
 
@@ -70,10 +59,10 @@ $produtos = json_decode(file_get_contents($produtosFile), true);
         <tr>
 
             <!-- Mostra o ID do produto -->
-            <td><?= $p['id'] ?></td>
+            <td><?= escapar($p['id']) ?></td>
 
             <!-- Mostra o nome do produto -->
-            <td><?= $p['nome'] ?></td>
+            <td><?= escapar($p['nome']) ?></td>
 
             <!-- Mostra o preço do produto formatado
                  Exemplo: 10.50 vira 10,50 -->
@@ -86,11 +75,11 @@ $produtos = json_decode(file_get_contents($produtosFile), true);
 
                 <!--
                 Formulário responsável por excluir o produto.
-                Os dados serão enviados para excluir_produto.php
+                Os dados serão enviados para excluir_produtos.php
                 utilizando o método POST.
                 -->
                 <form
-                    action="excluir_produto.php"
+                    action="excluir_produtos.php"
                     method="post"
                     style="display:inline;"
                     onsubmit="return confirm('Tem certeza que deseja excluir este produto?');"
@@ -98,12 +87,12 @@ $produtos = json_decode(file_get_contents($produtosFile), true);
 
                     <!--
                     Campo escondido que envia o ID do produto
-                    para o arquivo excluir_produto.php.
+                    para o arquivo excluir_produtos.php.
                     -->
                     <input
                         type="hidden"
                         name="id"
-                        value="<?= $p['id'] ?>"
+                        value="<?= escapar($p['id']) ?>"
                     >
 
                     <!-- Botão responsável por excluir o produto -->
@@ -125,14 +114,14 @@ $produtos = json_decode(file_get_contents($produtosFile), true);
     <br>
 
     <!-- Link para a página de cadastro de novos produtos -->
-    <a href="cadastrar_produto.php">
+    <a href="../../produto_form.php">
         Cadastrar Novo Produto
     </a>
 
     <br>
 
     <!-- Link para acessar a página de vendas -->
-    <a href="venda_form.php">
+    <a href="../../venda_form.php">
         Ir para Vendas
     </a>
 

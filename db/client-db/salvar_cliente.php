@@ -12,7 +12,7 @@ $idPessoa = time(); // timestamp como ID
 $cliente = new Cliente($idPessoa, $nome, $cpf, $credito, $saldo);
 
 // Caminho do arquivo JSON
-$arquivo = "clientes.json";
+require_once "config.php";
 
 // Lê arquivo existente ou cria novo
 $dados = file_exists($arquivo) ?json_decode(file_get_contents($arquivo), true) : [];

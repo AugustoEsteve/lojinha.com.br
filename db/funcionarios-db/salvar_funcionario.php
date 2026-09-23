@@ -1,7 +1,7 @@
 <?php
 require_once "funcionario.php";
 
-$funcionariosFile = "funcionarios.json";
+require_once "config.php"; // Inclui o arquivo de configuração
 
 // Cria o arquivo JSON inicial caso não exista
 if (!file_exists($funcionariosFile)) {
@@ -43,4 +43,7 @@ if (file_put_contents($funcionariosFile, json_encode($funcionarios, JSON_PRETTY_
 } else {
     echo "Erro ao salvar os dados no arquivo.";
 }
+
+echo "<br><a href='../../index.php'>Voltar ao Menu</a>";
+
 ?>

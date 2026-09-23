@@ -1,20 +1,14 @@
 <?php
-$produtosFile = "produtos.json";
+require_once "config.php";
 
-// Se o arquivo não existir, criará um arquivo vazio
-if(!file_exists($produtosFile)) {
-    file_put_contents($produtosFile, "[]");
-}
-
-// recebe os produtos
-$produtos = json_decode(file_get_contents($produtosFile), true);
+$produtos = carregarJson($produtosFile);
 
 // Recebe os dados do formulário
-$nome = $_POST['nome'] ?? null;
+$nome = trim($_POST['nome'] ?? '');
 $preco = $_POST['preco'] ?? null;
 
 // verifica se não tem nome ou preço
-if(!$nome || !$preco) {
+if ($nome === '' || !is_numeric($preco) || (float) $preco < 0) {
     die("Nome e preço são obrigatórios!");
 }
 
@@ -32,9 +26,9 @@ $novoProduto = [
 $produtos[] = $novoProduto;
 
 // salva o produto no .json
-file_put_contents($produtosFile, json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+salvarJson($produtosFile, $produtos);
 
 // redireciona para lista de produtos ou vendas
-header("Location: listar_produtos.php");
+header("Location: listar_produto.php");
 exit;
 ?>

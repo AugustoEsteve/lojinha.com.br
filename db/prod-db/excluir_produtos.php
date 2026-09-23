@@ -1,15 +1,8 @@
 <?php
 
-// Onde os dados vão ser salvos
-$produtosFile = "produtos.json";
+require_once "config.php";
 
-//Se o Json não existir, ele cria
-if (!file_exists($produtosFile)) {
-    file_put_contents($produtosFile, "[]");
-}
-
-// Transforma o Json em Array (O ??[] garante uma lista mesmo sem informações)
-$produtos = json_decode(file_get_contents($produtosFile), true) ?? [];
+$produtos = carregarJson($produtosFile);
 
 //Pega o Id que foi enviado a método POST
 $id = $_POST['id'] ?? null;
@@ -28,9 +21,9 @@ $produtos = array_filter($produtos, function ($p) use ($id) {
 $produtos = array_values($produtos);
 
 //Atualiza e converte para Json Novamente
-file_put_contents($produtosFile, json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+salvarJson($produtosFile, $produtos);
 
 // Redireciona o usuário de volta para a página de listagem de produtos
-header("Location: listar_produtos.php");
+header("Location: listar_produto.php");
 exit;
 ?>
