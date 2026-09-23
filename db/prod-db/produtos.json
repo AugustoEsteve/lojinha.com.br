@@ -1,7 +1,12 @@
 [
     {
         "id": 1,
-        "nome": "TungTung",
-        "preco": 6767
+        "nome": "Valentina Pires Calóre",
+        "preco": 666
+    },
+    {
+        "id": 2,
+        "nome": "Massagem",
+        "preco": 0
     }
 ]

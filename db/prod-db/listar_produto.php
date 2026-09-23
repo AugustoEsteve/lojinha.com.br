@@ -16,13 +16,28 @@ $produtos = carregarJson($produtosFile);
 
     <!-- Define a codificação de caracteres para aceitar acentos -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Título que aparece na aba do navegador -->
     <title>Lista de Produtos</title>
 
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { min-height: 100vh; padding: 2rem 1rem; color: white; background: #1d1d1d; background-image: radial-gradient(circle 1.2px, rgba(173, 216, 230, 0.25) 100%, transparent 100%); background-size: 1rem 1rem; }
+        .container { width: min(70rem, 100%); margin: 0 auto; padding: 2rem; background: rgba(43, 43, 43, 0.72); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.2rem; backdrop-filter: blur(4px); }
+        h1 { margin-bottom: 1.5rem; text-align: center; }
+        table { width: 100%; border-collapse: collapse; background: rgba(255, 255, 255, 0.04); }
+        th, td { border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.75rem; text-align: left; }
+        th { background: rgba(111, 111, 255, 0.4); }
+        button, a { display: inline-block; color: white; background: rgb(111, 111, 255); border: none; border-radius: 0.5rem; padding: 0.6rem 0.9rem; text-decoration: none; cursor: pointer; }
+        .links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+        @media (max-width: 600px) { .container { padding: 1rem; overflow-x: auto; } table { min-width: 600px; } }
+    </style>
+
 </head>
 
 <body>
+<main class="container">
 
     <!-- Título principal da página -->
     <h1>Produtos Cadastrados</h1>
@@ -111,19 +126,12 @@ $produtos = carregarJson($produtosFile);
 
     </table>
 
-    <br>
+    <div class="links">
+        <a href="../../produto_form.php">Cadastrar Novo Produto</a>
+        <a href="../../venda_form.php">Ir para Vendas</a>
+        <a href="../../index.php">Voltar ao Menu</a>
+    </div>
 
-    <!-- Link para a página de cadastro de novos produtos -->
-    <a href="../../produto_form.php">
-        Cadastrar Novo Produto
-    </a>
-
-    <br>
-
-    <!-- Link para acessar a página de vendas -->
-    <a href="../../venda_form.php">
-        Ir para Vendas
-    </a>
-
+</main>
 </body>
 </html>

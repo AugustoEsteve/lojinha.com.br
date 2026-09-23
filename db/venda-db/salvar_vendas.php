@@ -30,8 +30,20 @@ if (!$clienteEncontrado) {
     die('Cliente não encontrado.');
 }
 
-//Criar venda 
-$venda = new Venda(count($vendas) + 1, $idPessoa);
+// Usa o ID real salvo no cadastro para manter o mesmo tipo e valor no JSON.
+$idPessoa = $cliente['idPessoa'];
+
+// Gera o próximo ID com base no maior ID existente, evitando duplicidade.
+$proximoId = 1;
+foreach ($vendas as $vendaExistente) {
+    $idExistente = (int) ($vendaExistente['id'] ?? 0);
+    if ($idExistente >= $proximoId) {
+        $proximoId = $idExistente + 1;
+    }
+}
+
+// Criar venda
+$venda = new Venda($proximoId, $idPessoa);
 
 //Adicionar produtos
 foreach ($produtos as $produtoDados) {

@@ -1,16 +1,23 @@
 [
     {
-        "idFuncionario": 1,
-        "nome": "Isaac",
-        "cpf": "12345678",
-        "cargo": "Dono",
-        "salario": 13142
+        "idPessoa": 1,
+        "nome": "Arroz Catua",
+        "cpf": "12345676543",
+        "cargo": "Amor da sua vida",
+        "salario": 1234567
     },
     {
-        "idFuncionario": 2,
-        "nome": "Isaac",
-        "cpf": "12345678",
-        "cargo": "Dono",
-        "salario": 13142
+        "idPessoa": 1,
+        "nome": "Daniele",
+        "cpf": "666666666666666666666666",
+        "cargo": "Massagista",
+        "salario": 1
+    },
+    {
+        "idPessoa": 1,
+        "nome": "mamae daniele gostosa",
+        "cpf": "66666666666666666",
+        "cargo": "puta de luxo",
+        "salario": 666
     }
 ]
