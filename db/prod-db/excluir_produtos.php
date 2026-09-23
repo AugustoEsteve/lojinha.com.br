@@ -14,7 +14,7 @@ if ($id === null) {
 
 //Lê a lista e mostra os IDs de valores diferentes
 $produtos = array_filter($produtos, function ($p) use ($id) {
-    return $p['id'] != $id;
+    return (string) ($p['id'] ?? '') !== (string) $id;
 });
 
 //Reorganiza o Array para o Json não ter índices quebrados

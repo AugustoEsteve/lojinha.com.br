@@ -105,14 +105,14 @@ $funcionariosJSON = json_decode(file_get_contents($funcionariosFile), true);
 
         <?php foreach ($funcionariosJSON as $f): ?>
             <tr>
-                <td><?= htmlspecialchars($f['idPessoa'] ?? '') ?></td>
+                <td><?= htmlspecialchars($f['idPessoa'] ?? $f['idFuncionario'] ?? $f['id'] ?? '') ?></td>
                 <td><?= htmlspecialchars($f['nome'] ?? '') ?></td>
                 <td><?= htmlspecialchars($f['cpf'] ?? '') ?></td>
                 <td><?= htmlspecialchars($f['cargo'] ?? '') ?></td>
                 <td><?= number_format((float) ($f['salario'] ?? 0), 2, ',', '.') ?></td>
                 <td>
                     <form action="excluir_funcionario.php" method="post" style="display:inline;" onsubmit="return confirm('Deseja realmente excluir este funcionário?');">
-                        <input type="hidden" name="idPessoa" value="<?= htmlspecialchars($f['idPessoa'] ?? '') ?>">
+                        <input type="hidden" name="idPessoa" value="<?= htmlspecialchars($f['idPessoa'] ?? $f['idFuncionario'] ?? $f['id'] ?? '') ?>">
                         <button type="submit">Excluir</button>
                     </form>
                 </td>

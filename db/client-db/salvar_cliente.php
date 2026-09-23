@@ -1,27 +1,30 @@
 <?php
 require_once "cliente.php";
-
-$nome = $_POST['nome'];
-$cpf = $_POST['cpf'];
-$credito = $_POST['credito'];
-$saldo = $_POST['saldo'];
-
-// Geração de ID simples
-$idPessoa = time(); // timestamp como ID
-
-$cliente = new Cliente($idPessoa, $nome, $cpf, $credito, $saldo);
-
-// Caminho do arquivo JSON
 require_once "config.php";
 
-// Lê arquivo existente ou cria novo
-$dados = file_exists($arquivo) ?json_decode(file_get_contents($arquivo), true) : [];
+$nome = trim($_POST['nome'] ?? '');
+$cpf = trim($_POST['cpf'] ?? '');
+$credito = $_POST['credito'] ?? 0;
+$saldo = $_POST['saldo'] ?? 0;
 
-//Adiciona novo cliente
+if ($nome === '' || $cpf === '' || !is_numeric($credito) || !is_numeric($saldo)) {
+	die('Nome, CPF, crédito e saldo são obrigatórios e devem ser válidos.');
+}
+
+// Gera um ID numérico único sem depender do horário do cadastro.
+$dados = carregarJson($clientesFile);
+$maiorId = 0;
+foreach ($dados as $clienteExistente) {
+	$idExistente = (int) ($clienteExistente['idPessoa'] ?? 0);
+	$maiorId = max($maiorId, $idExistente);
+}
+$idPessoa = $maiorId + 1;
+
+$cliente = new Cliente($idPessoa, $nome, $cpf, (float) $credito, (float) $saldo);
 $dados[] = $cliente->toArray();
 
-//Salva novamente no arquivo
-file_put_contents($arquivo, json_encode($dados, JSON_PRETTY_PRINT));
+salvarJson($clientesFile, $dados);
 
-echo "Cliente cadastrado com sucesso!";
+header('Location: listar_cliente.php');
+exit;
 ?>

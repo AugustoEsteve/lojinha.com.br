@@ -13,7 +13,11 @@ if ($nome === '' || !is_numeric($preco) || (float) $preco < 0) {
 }
 
 // Gera um ID automáticamente e adiciona + 1 no contador
-$novoID = count($produtos) > 0 ? max(array_column($produtos, "id")) + 1 : 1;
+$maiorId = 0;
+foreach ($produtos as $produtoExistente) {
+    $maiorId = max($maiorId, (int) ($produtoExistente['id'] ?? 0));
+}
+$novoID = $maiorId + 1;
 
 
 // Cria um novo produto

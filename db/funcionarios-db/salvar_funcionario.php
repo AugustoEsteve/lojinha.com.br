@@ -23,13 +23,17 @@ if (empty($nome) || empty($cpf) || empty($cargo) || $salario === null || $salari
     die("X Todos os campos são obrigatórios.");
 }
 
-// Gera o ID automático (Garante busca por 'id' ou 'idFuncionario')
-$ids = array_column($funcionarios, "idFuncionario");
-if (empty($ids)) {
-    $ids = array_column($funcionarios, "id"); // Fallback caso no JSON esteja salvo como 'id'
+// Gera o próximo ID considerando os formatos antigos e o formato atual.
+$maiorId = 0;
+foreach ($funcionarios as $funcionarioExistente) {
+    $idExistente = $funcionarioExistente['idPessoa']
+        ?? $funcionarioExistente['idFuncionario']
+        ?? $funcionarioExistente['id']
+        ?? 0;
+    $maiorId = max($maiorId, (int) $idExistente);
 }
 
-$novoId = !empty($ids) ? max($ids) + 1 : 1;
+$novoId = $maiorId + 1;
 
 // Cria a instância do funcionário e converte para array
 $funcionario = new Funcionario($novoId, $nome, $cpf, $cargo, (float)$salario);
@@ -38,12 +42,10 @@ $funcionario = new Funcionario($novoId, $nome, $cpf, $cargo, (float)$salario);
 $funcionarios[] = $funcionario->toArray();
 
 // Salva de volta no arquivo JSON
-if (file_put_contents($funcionariosFile, json_encode($funcionarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
-    echo "Funcionário cadastrado com sucesso! (ID: {$novoId})";
-} else {
-    echo "Erro ao salvar os dados no arquivo.";
+if (!file_put_contents($funcionariosFile, json_encode($funcionarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX)) {
+    die('Erro ao salvar os dados no arquivo.');
 }
 
-echo "<br><a href='../../index.php'>Voltar ao Menu</a>";
-
+header('Location: listar_funcionario.php');
+exit;
 ?>

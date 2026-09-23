@@ -10,11 +10,25 @@ if ($idPessoa === null || $idPessoa === '') {
 }
 
 //Remove o funcionário
-$funcionarios = array_filter($funcionarios, function ($funcionario) use ($idPessoa) {
-	$id = $funcionario['idPessoa'] ?? $funcionario['idFuncionario'] ?? null;
-	return (string) $id !== (string) $idPessoa;
+$encontrado = false;
+$funcionarios = array_filter($funcionarios, function ($funcionario) use ($idPessoa, &$encontrado) {
+	$id = $funcionario['idPessoa']
+		?? $funcionario['idFuncionario']
+		?? $funcionario['id']
+		?? null;
+
+	if ((string) $id === (string) $idPessoa) {
+		$encontrado = true;
+		return false;
+	}
+
+	return true;
 });
 $funcionarios = array_values($funcionarios); //reorganiza indices
+
+if (!$encontrado) {
+	die('Funcionário não encontrado.');
+}
 
 salvarJson($funcionariosFile, $funcionarios);
 

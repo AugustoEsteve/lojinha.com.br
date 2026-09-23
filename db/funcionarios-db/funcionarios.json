@@ -1,23 +1,23 @@
 [
     {
         "idPessoa": 1,
-        "nome": "Arroz Catua",
-        "cpf": "12345676543",
-        "cargo": "Amor da sua vida",
-        "salario": 1234567
+        "nome": "Mariane",
+        "cpf": "1234568",
+        "cargo": "gabriel hehe",
+        "salario": 666
     },
     {
-        "idPessoa": 1,
-        "nome": "Daniele",
-        "cpf": "666666666666666666666666",
-        "cargo": "Massagista",
+        "idPessoa": 2,
+        "nome": "coxenta",
+        "cpf": "66666666666666666",
+        "cargo": "coxinha da carol",
         "salario": 1
     },
     {
-        "idPessoa": 1,
-        "nome": "mamae daniele gostosa",
-        "cpf": "66666666666666666",
-        "cargo": "puta de luxo",
-        "salario": 666
+        "idPessoa": 3,
+        "nome": "Patricia Porteira",
+        "cpf": "666 do capeta",
+        "cargo": "porteira",
+        "salario": 1.2222222222222223e+18
     }
 ]
