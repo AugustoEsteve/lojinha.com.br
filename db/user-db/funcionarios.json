@@ -1,0 +1,16 @@
+[
+    {
+        "idFuncionario": 1,
+        "nome": "Isaac",
+        "cpf": "12345678",
+        "cargo": "Dono",
+        "salario": 13142
+    },
+    {
+        "idFuncionario": 2,
+        "nome": "Isaac",
+        "cpf": "12345678",
+        "cargo": "Dono",
+        "salario": 13142
+    }
+]
